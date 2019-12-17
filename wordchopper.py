@@ -18,7 +18,7 @@ WORD_MAX_SIZE = 40
 SEPARATOR = ","
 
 df = pandas.read_excel(EXCEL_FILE)
-fip = open(TXT_FILE, "w+")
+content = ""
 
 print("Please find below content with more than 40 characters:")
 for i in range(len(df)):
@@ -27,9 +27,13 @@ for i in range(len(df)):
         if len(df[COLUMN][i]) > WORD_MAX_SIZE:
             print(df[COLUMN][i])
         else:
-            fip.write(df[COLUMN][i] + SEPARATOR)
+            content = content + df[COLUMN][i] + SEPARATOR
     except AttributeError:
         pass
 
 print("")
+content = content[:-1]
+
+fip = open(TXT_FILE, "w")
+fip.write(content)
 fip.close()
