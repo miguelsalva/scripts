@@ -28,11 +28,11 @@ for i in range(len(df)):
             print(df[COLUMN][i])
         else:
             content = content + df[COLUMN][i] + SEPARATOR
-    except AttributeError:
+    except AttributeError:  # Controls the blank cells on the EXCEL_FILE
         pass
 
 print("")
-content = content[:-1]
+content = content[:-1]  # Removes the final SEPARATOR
 
 fip = open(TXT_FILE, "w")
 fip.write(content)
