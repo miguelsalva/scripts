@@ -22,11 +22,14 @@ fip = open(TXT_FILE, "w+")
 
 print("Please find below content with more than 40 characters:")
 for i in range(len(df)):
-    df.loc[COLUMN, i] = df[COLUMN][i].strip()
-    if len(df[COLUMN][i]) > WORD_MAX_SIZE:
-        print(df[COLUMN][i])
-    else:
-        fip.write(df[COLUMN][i] + SEPARATOR)
+    try:
+        df.loc[COLUMN, i] = df[COLUMN][i].strip()
+        if len(df[COLUMN][i]) > WORD_MAX_SIZE:
+            print(df[COLUMN][i])
+        else:
+            fip.write(df[COLUMN][i] + SEPARATOR)
+    except AttributeError:
+        pass
 
 print("")
 fip.close()
