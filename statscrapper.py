@@ -9,12 +9,12 @@
 
 import sys
 import requests 
-import beautifulsoup4
+from bs4 import BeautifulSoup
 from atlassian import Confluence
 
 URL = sys.argv[1]
-USERNAME = 
-PASWORD = 
+USERNAME = sys.argv[2]
+PASSWORD = sys.argv[3]
 
 confluence = Confluence(url=URL, username=USERNAME, password=PASSWORD)
 # confluence.page_exists(space, title)
@@ -22,6 +22,6 @@ confluence = Confluence(url=URL, username=USERNAME, password=PASSWORD)
 req = requests.get(URL)
 status_code = req.status_code
 html_text = req.text
-
+print(html_text)
 
 
