@@ -6,6 +6,7 @@
 #           icon to retrieve some stats 
 #
 # This script requires the beautifulsoup4 and requests libraries to run
+# This script also uses the atlassian-python-api in case you need to scrap from a Confluence site
 
 import sys
 import requests 
@@ -16,6 +17,7 @@ URL = sys.argv[1]
 USERNAME = sys.argv[2]
 PASSWORD = sys.argv[3]
 
+# We connect to the Confluence site
 confluence = Confluence(url=URL, username=USERNAME, password=PASSWORD)
 # confluence.page_exists(space, title)
 
