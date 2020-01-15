@@ -2,11 +2,10 @@
 #
 # FILE: statscrapper.py
 # AUTHOR: Miguel Salvá
-# ABSTRACT: This script reads the content from a given URL (passed as an argument) and counts different status
-#           icon to retrieve some stats 
+# ABSTRACT: This script scraps the content from a given URL (passed as an argument) and counts different status
+#           icon to retrieve some stats. It can also login into a Confluence site 
 #
-# This script requires the beautifulsoup4 and requests libraries to run
-# This script also uses the atlassian-python-api in case you need to scrap from a Confluence site
+# This script requires the beautifulsoup4, requests and atlassian-python-api libraries to run
 
 import sys
 import requests 
@@ -17,7 +16,7 @@ URL = sys.argv[1]
 USERNAME = sys.argv[2]
 PASSWORD = sys.argv[3]
 
-# We connect to the Confluence site
+# Connects to the Confluence site
 confluence = Confluence(url=URL, username=USERNAME, password=PASSWORD)
 # confluence.page_exists(space, title)
 
