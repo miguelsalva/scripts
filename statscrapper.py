@@ -16,13 +16,24 @@ URL = sys.argv[1]
 USERNAME = sys.argv[2]
 PASSWORD = sys.argv[3]
 
+ok_total = 0
+wr_total = 0
+ko_total = 0
+
 # Connects to the Confluence site
 confluence = Confluence(url=URL, username=USERNAME, password=PASSWORD)
 # confluence.page_exists(space, title)
 
 req = requests.get(URL)
-status_code = req.status_code
-html_text = req.text
-print(html_text)
+#status_code = req.status_code
+#html_text = req.text
+html = BeautifulSoup(req.text, 'html.parser')
 
+ok_entries = html.find_all('img',{'class' : 'emoticon-tick'})
+wr_entries = html.find_all('img',{'class' : 'emoticon emoticon-warning'})
+ko_entries = html.find_all('img',{'class' : 'emoticon emoticon-cross'})
 
+print(ok_entries)
+print(wr_entries)
+print(ko_entries)
+#print(html)
