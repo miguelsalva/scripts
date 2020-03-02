@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# FILE: httpstatuscodetimer.py
+# FILE: httptransponder.py
 # AUTHOR: Miguel Salvá
 # ABSTRACT: This script monitors HTTP status code changes for a given endpoint (passed as an argument)
 #
