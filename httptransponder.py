@@ -79,7 +79,7 @@ while True:
     if OLD_STATUS_CODE != NEW_STATUS_CODE:
         OLD_STATUS_CODE = NEW_STATUS_CODE
         DOWNTIME = DOWNTIME + 1
-        # break  # First HTTP status code change
+    #    break  # First HTTP status code change
 
 while True:
     NEW_STATUS_CODE = get_status_code(ENDPOINT)
