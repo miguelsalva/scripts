@@ -68,7 +68,7 @@ def set_color(sc):
         return ""
 
 def get_time():
-    """FUnction that returns the current time formatted in a readable way"""
+    """Function that returns the current time formatted in a readable way"""
     return time.asctime(time.localtime(time.time()))
 
 
@@ -78,7 +78,8 @@ OLD_STATUS_CODE = get_status_code(ENDPOINT)
 while True: 
     NEW_STATUS_CODE = get_status_code(ENDPOINT)
     COLOR = set_color(NEW_STATUS_CODE)
-    print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(get_time())) #" | Current HTTP downtime: " + str(DOWNTIME) + " seconds")
+    CURRENT_TIME = get_time()
+    print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(CURRENT_TIME)) #" | Current HTTP downtime: " + str(DOWNTIME) + " seconds")
     time.sleep(1)
     if OLD_STATUS_CODE != NEW_STATUS_CODE:
         OLD_STATUS_CODE = NEW_STATUS_CODE
