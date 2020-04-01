@@ -12,6 +12,7 @@ import requests
 
 ENDPOINT = sys.argv[1]
 DOWNTIME = 0
+TERM_COLOR = "\033[1;37;40m"  # White text over black background
 
 code_message = {
         100: 'Continue                           ', 101: 'Switching Protocols                ', 
@@ -55,17 +56,17 @@ def get_status_code(ep):
 def set_color(sc):
     """Function that gets an status code and returns a color"""
     if sc in range(100,199):    # 1xx Informational response
-        return "\033[1;30;47m"  #     Black text over white background
+        return "\033[1;30;47m"  # Black text over white background
     elif sc in range(200,299):  # 2xx Success
-        return "\033[1;37;42m"  #     White text over green background
+        return "\033[1;37;42m"  # White text over green background
     elif sc in range(300,399):  # 3xx Redirection
-        return "\033[1;37;43m"  #     White text over yellow background
+        return "\033[1;37;43m"  # White text over yellow background
     elif sc in range(400,499):  # 4xx Client errors
-        return "\033[1;37;41m"  #     White text over red background
+        return "\033[1;37;41m"  # White text over red background
     elif sc in range(500,599):  # 5xx Server errors
-        return "\033[1;37;41m"  #     White text over red background
+        return "\033[1;37;41m"  # White text over red background
     else:
-        return ""
+        return TERM_COLOR
 
 def get_time():
     """Function that returns the current time formatted in a readable way"""
