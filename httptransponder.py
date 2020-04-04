@@ -55,7 +55,7 @@ def get_status_code(ep):
 
 def set_color(sc):
     """Function that gets an status code and returns a color"""
-    if sc in range(100,199):    # 1xx Informational response
+    if sc in range(100,199):    # 1xx Informational response 
         return "\033[1;30;47m"  # Black text over white background
     elif sc in range(200,299):  # 2xx Success
         return "\033[1;37;42m"  # White text over green background
