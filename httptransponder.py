@@ -74,31 +74,25 @@ def get_time():
 
 
 # Main
+print("")
+print("= httptransponder - HTTP status code for " + ENDPOINT)
+print("= Stop the execution of the script with Ctrl-c")
+print("")
 OLD_STATUS_CODE = get_status_code(ENDPOINT)
-print("")
-print("httptransponder - HTTP status code for " + ENDPOINT)
-print("")
 
 while True: 
-    NEW_STATUS_CODE = get_status_code(ENDPOINT)
-    COLOR = set_color(NEW_STATUS_CODE)
-    CURRENT_TIME = get_time()
-    print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(CURRENT_TIME) + "   " + TERM_COLOR)
-    time.sleep(1)
-    if OLD_STATUS_CODE != NEW_STATUS_CODE:
-        OLD_STATUS_CODE = NEW_STATUS_CODE
-        DOWNTIME = DOWNTIME + 1
-        # break  # First HTTP status code change
-
-while True:
-    NEW_STATUS_CODE = get_status_code(ENDPOINT)
-    COLOR = set_color(NEW_STATUS_CODE)
-    print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " | Current HTTP downtime: " + str(DOWNTIME) + " seconds")
-    time.sleep(1)
-    if OLD_STATUS_CODE != NEW_STATUS_CODE:
-        break  # Second HTTP status code change
-    else:
-        DOWNTIME = DOWNTIME + 1
+    try:
+        NEW_STATUS_CODE = get_status_code(ENDPOINT)
+        COLOR = set_color(NEW_STATUS_CODE)
+        CURRENT_TIME = get_time()
+        print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(CURRENT_TIME) + "   " + TERM_COLOR)
+        time.sleep(1)
+        #if OLD_STATUS_CODE != NEW_STATUS_CODE:
+        #    OLD_STATUS_CODE = NEW_STATUS_CODE
+        #    DOWNTIME = DOWNTIME + 1
+        #    break  # First HTTP status code chang
+    except KeyboardInterrupt:
+        break
 
 print ("")
 print("Total HTTP downtime: " + str(DOWNTIME) + " seconds")
