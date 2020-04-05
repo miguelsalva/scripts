@@ -84,6 +84,8 @@ while True:
     try:
         NEW_STATUS_CODE = get_status_code(ENDPOINT)
         COLOR = set_color(NEW_STATUS_CODE)
+        if NEW_STATUS_CODE in range(400,599):
+            DOWNTIME = DOWNTIME + 1
         CURRENT_TIME = get_time()
         print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(CURRENT_TIME) + "   " + TERM_COLOR)
         time.sleep(1)
@@ -94,6 +96,7 @@ while True:
     except KeyboardInterrupt:
         break
 
-print ("")
+print("")
+print("")
 print("Total HTTP downtime: " + str(DOWNTIME) + " seconds")
 
