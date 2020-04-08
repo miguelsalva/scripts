@@ -89,10 +89,6 @@ while True:
         CURRENT_TIME = get_time()
         print(str(COLOR) + "HTTP status code " + str(NEW_STATUS_CODE) + ": " + code_message[NEW_STATUS_CODE] + " |   Current time: " + str(CURRENT_TIME) + "   " + TERM_COLOR)
         time.sleep(1)
-        #if OLD_STATUS_CODE != NEW_STATUS_CODE:
-        #    OLD_STATUS_CODE = NEW_STATUS_CODE
-        #    DOWNTIME = DOWNTIME + 1
-        #    break  # First HTTP status code chang
     except KeyboardInterrupt:
         break
 
