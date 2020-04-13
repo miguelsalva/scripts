@@ -74,9 +74,15 @@ def get_time():
 
 
 # Main
-print("")
-print("= httptransponder - HTTP status code for " + ENDPOINT)
-print("= Stop the execution of the script with Ctrl-c")
+print ("""
+  __    __   __         __                                               __
+ |  |--|  |_|  |_.-----|  |_.----.---.-.-----.-----.-----.-----.-----.--|  |-----.----.
+ |     |   _|   _|  _  |   _|   _|  _  |     |__ --|  _  |  _  |     |  _  |  - _|   _|
+ |__|__|____|____|   __|____|__| |___._|__|__|_____|   __|_____|__|__|___._|_____|__|
+                 |__|                              |__|
+""")
+print(" httptransponder - HTTP status code for " + ENDPOINT)
+print(" Stop the execution of the script with Ctrl-c")
 print("")
 OLD_STATUS_CODE = get_status_code(ENDPOINT)
 
