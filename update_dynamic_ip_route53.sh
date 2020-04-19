@@ -2,7 +2,7 @@
 #
 # FILE: update_dynamic_ip_route53.sh
 # AUTHOR: Miguel Salvá
-# ABSTRACT: This script request the current external IP address to the ipify API and updates it on the AWS route53 service
+# ABSTRACT: This script request the current external IP address to the ipify API and updates it on the AWS Route53 service
 #
 # This script requires the AWS CLI installed and the $DOMAIN and $HOSTED_ZONE variables defined to run 
 
