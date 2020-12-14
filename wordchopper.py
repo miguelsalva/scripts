@@ -14,6 +14,7 @@ import pandas
 EXCEL_FILE = sys.argv[1]
 TXT_FILE = "leavers.txt"
 COLUMN = "Long ID/Number"
+#COLUMN = "ID larga/número"
 WORD_MAX_SIZE = 40
 SEPARATOR = ","
 
